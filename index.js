@@ -5,7 +5,7 @@ let minute = 30;
 let hour = 2;
 
 //clock
-setInterval(()=>{
+let timeId = setInterval(()=>{
   second-=1;
   if (second<0){
     minute -= 1;
@@ -31,6 +31,7 @@ let temp = 0;
 //button end
 button.onclick = function(){
   isDoing = false;
+  clearInterval(timeId);
   const mark = document.getElementById("mark");
     if (ans.length===key.length || (hour===0&&second===0&&minute===0)|| isDoing === false){
       mark.textContent = `${temp}/${key.length}`;
